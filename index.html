@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My Make Up</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="text-bg-dark text-center p-1">My Make Up</header>
+    <nav>
+      <div class="row p-3">
+        <div class="col">
+          <div class="row">
+            <label for="nome" class="cols-sm-12 col-md-3 col-form-label">Nome:</label>
+            <div class="col-md-8">
+              <input
+                type="search"
+                id="searchMakeUP"
+                autocomplete="off"
+                class="form-control"
+                id="nome"
+                placeholder="procure a maquiagem"
+              />
+            </div>
+        </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <label for="marca" class="col-sm-12 col-md-3 col-form-label">Marca:</label>
+            <div class="col-sm-12 col-md-8">
+              <select id="marca" class="form-select" /></select>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <label for="tipo" class="col-sm-12 col-md-3 col-form-label">Tipo:</label>
+            <div class="col-sm-12 col-md-8">
+              <select id="tipo" class="form-select" /></select>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <label for="ordem" class="col-sm-12 col-md-3 col-form-label">Ordem:</label>
+            <div class="col-sm-12 col-md-8">
+              <select id="ordem" class="form-select" /></select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div id="grid" class="d-flex flex-wrap p-4"></div>
+    </main>
+    <script src="js/main.js" async defer></script>
+  </body>
+</html>
