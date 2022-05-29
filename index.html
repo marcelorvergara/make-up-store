@@ -99,7 +99,7 @@
                 type="search"
                 id="searchMakeUP"
                 autocomplete="off"
-                class="form-control"
+                class="form-control form-control-sm"
                 id="nome"
                 placeholder="procure a maquiagem"
               />
@@ -112,7 +112,11 @@
               >Marca:</label
             >
             <div class="col-sm-12 col-md-9">
-              <select id="marca" class="form-select" onchange="marcaChange()">
+              <select
+                id="marca"
+                class="form-select form-select-sm"
+                onchange="marcaChange()"
+              >
                 <option value="null" disabled selected>
                   Selecione a marca
                 </option>
@@ -126,7 +130,11 @@
               >Tipo:</label
             >
             <div class="col-sm-12 col-md-9">
-              <select id="tipo" class="form-select" onchange="tipoChange()">
+              <select
+                id="tipo"
+                class="form-select form-select-sm"
+                onchange="tipoChange()"
+              >
                 <option value="null" disabled selected>Selecione o tipo</option>
               </select>
             </div>
@@ -138,7 +146,11 @@
               >Ordem:</label
             >
             <div class="col-sm-12 col-md-7">
-              <select id="ordem" class="form-select" onchange="ordenar()">
+              <select
+                id="ordem"
+                class="form-select form-select-sm"
+                onchange="ordenar()"
+              >
                 <option value="null" disabled selected>
                   Selecione a ordem
                 </option>
@@ -152,7 +164,7 @@
             <div class="col-sm-12 col-md-2">
               <button
                 type="button"
-                class="btn btn-outline-danger"
+                class="btn btn-outline-danger btn-sm"
                 onclick="limpar()"
               >
                 Limpar
