@@ -6,7 +6,6 @@
     <title>My Make Up</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -20,13 +19,82 @@
     ></script>
   </head>
   <body>
-    <header class="text-bg-dark text-center p-1">My Make Up</header>
+    <!-- modal start -->
+    <div class="modal fade" id="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-bg-light">
+          <div class="modal-header">
+            <span
+              id="titulo-mdl"
+              class="modal-title fw-semibold d-inline-block text-truncate"
+              style="max-width: 380px"
+            ></span>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              onclick="closeModal()"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-5">
+                <img
+                  id="img-mdl"
+                  src="img/unavailable.png"
+                  alt="imagem da maquiagem"
+                  class="figure-img img-fluid rounded"
+                />
+                <div>
+                  <span id="brand-mdl" class="badge text-bg-secondary"></span>
+                  <span id="price-mdl" class="badge text-bg-primary"></span>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <!-- brand -->
+                <div class="row me-2">
+                  <div class="col-sm-5">Brand</div>
+                  <div class="col text-white bg-dark" id="brand-dtl-mdl"></div>
+                </div>
+                <!-- price -->
+                <div class="row me-2 mt-3">
+                  <div class="col-sm-5">Price</div>
+                  <div class="col text-white bg-dark" id="price-dtl-mdl"></div>
+                </div>
+                <!-- rating -->
+                <div class="row me-2 mt-3">
+                  <div class="col-sm-5">Rating</div>
+                  <div class="col text-white bg-dark" id="rating-dtl-mdl"></div>
+                </div>
+                <!-- category  -->
+                <div class="row me-2 mt-3">
+                  <div class="col-sm-5">Category</div>
+                  <div
+                    class="col text-white bg-dark"
+                    id="category-dtl-mdl"
+                  ></div>
+                </div>
+                <!-- type -->
+                <div class="row me-2 mt-3">
+                  <div class="col-sm-5">Prod. Type</div>
+                  <div class="col text-white bg-dark" id="prd-dtl-mdl"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->
+    <header class="text-bg-dark text-center p-1 fs-5">My Make Up</header>
     <nav>
-      <div class="row p-3">
-        <div class="col">
+      <div class="row px-4 mt-2">
+        <div class="col-sm-3">
           <div class="row">
-            <label for="nome" class="cols-sm-12 col-md-3 col-form-label">Nome:</label>
-            <div class="col-md-8">
+            <label for="nome" class="cols-sm-12 col-md-2 col-form-label"
+              >Nome:</label
+            >
+            <div class="col-md-9">
               <input
                 type="search"
                 id="searchMakeUP"
@@ -36,35 +104,65 @@
                 placeholder="procure a maquiagem"
               />
             </div>
+          </div>
         </div>
-        </div>
-        <div class="col">
+        <div class="col-sm-3">
           <div class="row">
-            <label for="marca" class="col-sm-12 col-md-3 col-form-label">Marca:</label>
-            <div class="col-sm-12 col-md-8">
-              <select id="marca" class="form-select" /></select>
+            <label for="marca" class="col-sm-12 col-md-2 col-form-label"
+              >Marca:</label
+            >
+            <div class="col-sm-12 col-md-9">
+              <select id="marca" class="form-select" onchange="marcaChange()">
+                <option value="null" disabled selected>
+                  Selecione a marca
+                </option>
+              </select>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm-3">
           <div class="row">
-            <label for="tipo" class="col-sm-12 col-md-3 col-form-label">Tipo:</label>
-            <div class="col-sm-12 col-md-8">
-              <select id="tipo" class="form-select" /></select>
+            <label for="tipo" class="col-sm-12 col-md-2 col-form-label"
+              >Tipo:</label
+            >
+            <div class="col-sm-12 col-md-9">
+              <select id="tipo" class="form-select" onchange="tipoChange()">
+                <option value="null" disabled selected>Selecione o tipo</option>
+              </select>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-sm-3">
           <div class="row">
-            <label for="ordem" class="col-sm-12 col-md-3 col-form-label">Ordem:</label>
-            <div class="col-sm-12 col-md-8">
-              <select id="ordem" class="form-select" /></select>
+            <label for="ordem" class="col-sm-12 col-md-2 col-form-label"
+              >Ordem:</label
+            >
+            <div class="col-sm-12 col-md-7">
+              <select id="ordem" class="form-select" onchange="ordenar()">
+                <option value="null" disabled selected>
+                  Selecione a ordem
+                </option>
+                <option value="avaliacao">Melhor Avaliados</option>
+                <option value="menor_preco">Menores Preços</option>
+                <option value="maior_preco">Maiores Preços</option>
+                <option value="nome_a_z">Nome Crescente</option>
+                <option value="nome_z_a">Nome Decrescente</option>
+              </select>
+            </div>
+            <div class="col-sm-12 col-md-2">
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                onclick="limpar()"
+              >
+                Limpar
+              </button>
             </div>
           </div>
         </div>
       </div>
     </nav>
-    <main>
+    <main class="container mx-auto">
       <div id="grid" class="d-flex flex-wrap p-4"></div>
     </main>
     <script src="js/main.js" async defer></script>
